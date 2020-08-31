@@ -1,0 +1,55 @@
+#inclue<stdio.h>
+#include<stdlib.h>
+struct node{
+ 
+    int data;   //for data
+    struct node* next;// for address 
+};
+ 
+struct node* head;
+ 
+void insert(int data) //function for inserting data
+{
+ 
+   
+    struct node* temp = (struct node*)malloc(sizeof(struct node)); //used for dynamically memory allocation 
+ 
+    temp->data = data;  //temp of data is equals to data
+    temp->next = head; //temp of next is equals to head
+ 
+    head = temp;
+ 
+}
+ 
+void print()   //function for display
+{
+ 
+    struct node* temp = head;
+ 
+    int count=0;  //initially count = 0
+ 
+    /* Traverse the linked list and maintain the count. */
+ 
+    while(temp != NULL){
+ 
+       temp = temp->next;
+       count++;
+ 
+    }
+ 
+    printf("\n Total no. of nodes is %d",count);
+ 
+}
+ 
+void main() //function of main
+{
+ 
+    head = NULL;
+ 
+    insert(2);
+    insert(4);
+ 
+    /* calling print function to print the count of node. */
+    print();
+ 
+}
